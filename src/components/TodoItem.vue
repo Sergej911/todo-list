@@ -4,7 +4,7 @@
             {{ todo.text }}
         </div>
         <div class="btn-group btn-group-sm">
-            <button @click="toggleTodo(todo)" class="btn btn-success">Готово</button>
+            <button @click="emit('toggle-todo', todo)" class="btn btn-success">Готово</button>
             <button @click="emit('remove-todo', todo)" class="btn btn-danger">Удалить</button>
         </div>
     </li>
@@ -21,12 +21,7 @@ const props = defineProps({
     todo: Object
 })
 
-const emit = defineEmits(['remove-todo, toggle-todo']);
-
-
-const toggleTodo = (todo) => {
-    todoStore.toggleTodo(todo);
-}
+const emit = defineEmits(['remove-todo', 'toggle-todo']);
 </script>
 
 <style scoped>

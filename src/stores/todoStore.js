@@ -16,6 +16,11 @@ export const useTodoStore = defineStore("todo", () => {
         id = Math.max(...todos.value.map((t) => t.id)) + 1;
       }
     }
+
+    const savedFilter = localStorage.getItem("filter");
+    if (savedFilter) {
+      filter.value = savedFilter;
+    }
   });
 
   const allTodos = computed(() => todos.value);
@@ -52,6 +57,7 @@ export const useTodoStore = defineStore("todo", () => {
   // Установка фильтра
   function setFilter(newFilter) {
     filter.value = newFilter;
+    localStorage.setItem("filter", newFilter);
   }
 
   function saveToLocalStorage() {
