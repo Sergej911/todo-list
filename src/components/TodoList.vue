@@ -1,7 +1,7 @@
 <template>
     <div>
         <select :value="filter" @change="setFilter($event.target.value)"
-            class="py-2 px-3 border rounded custom-select mb-3">
+            class="py-2 px-3 border rounded custom-select mb-4">
             <option value="all">Все задачи</option>
             <option value="completed">Выполненные</option>
             <option value="not-completed">Невыполненные</option>
