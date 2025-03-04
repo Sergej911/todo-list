@@ -14,7 +14,6 @@ import { ref } from "vue";
 import { useTodoStore } from "@/stores/todoStore";
 
 const todoStore = useTodoStore();
-
 const newTodo = ref('');
 
 function addTodo() {

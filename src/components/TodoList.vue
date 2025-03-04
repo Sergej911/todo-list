@@ -17,7 +17,6 @@
 
 <script setup>
 import { computed } from "vue";
-import { defineProps } from "vue";
 import { useTodoStore } from "@/stores/todoStore";
 import TodoItem from "./TodoItem.vue";
 

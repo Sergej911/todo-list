@@ -11,10 +11,6 @@ export const useTodoStore = defineStore("todo", () => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
       todos.value = JSON.parse(savedTodos);
-
-      if (todos.value.length > 0) {
-        id = Math.max(...todos.value.map((t) => t.id)) + 1;
-      }
     }
 
     const savedFilter = localStorage.getItem("filter");
