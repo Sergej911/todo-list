@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="mt-3">Список задач</h1>
     <app-form />
-    <todo-list :todos="todos" />
+    <todo-list />
   </div>
 </template>
 

@@ -23,10 +23,6 @@ import TodoItem from "./TodoItem.vue";
 
 const todoStore = useTodoStore();
 
-const props = defineProps({
-    todos: Array
-})
-
 const filteredTodos = computed(() => todoStore.filteredTodos);
 const filter = computed(() => todoStore.filter);
 
