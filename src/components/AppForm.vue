@@ -18,14 +18,8 @@ const todoStore = useTodoStore();
 const newTodo = ref('');
 
 function addTodo() {
-    if (newTodo.value.trim()) {
-        todoStore.addTodo(newTodo.value);
-        newTodo.value = '';
-    }
-}
-
-function setFilter(filter) {
-    todoStore.setFilter(filter);
+    todoStore.addTodo(newTodo.value);
+    newTodo.value = '';
 }
 </script>
 

@@ -5,7 +5,7 @@ export const useTodoStore = defineStore("todo", () => {
   let id = 0;
 
   const todos = ref([]);
-  const filter = ref("all"); // По умолчанию показываем все задачи
+  const filter = ref("all");
 
   onMounted(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -42,19 +42,17 @@ export const useTodoStore = defineStore("todo", () => {
     saveToLocalStorage();
   }
 
-  // Фильтрация задач
   const filteredTodos = computed(() => {
     switch (filter.value) {
       case "completed":
-        return todos.value.filter((todo) => todo.completed); // Только выполненные
+        return todos.value.filter((todo) => todo.completed);
       case "not-completed":
-        return todos.value.filter((todo) => !todo.completed); // Только невыполненные
+        return todos.value.filter((todo) => !todo.completed);
       default:
-        return todos.value; // Все задачи
+        return todos.value;
     }
   });
 
-  // Установка фильтра
   function setFilter(newFilter) {
     filter.value = newFilter;
     localStorage.setItem("filter", newFilter);

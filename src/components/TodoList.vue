@@ -27,7 +27,6 @@ const props = defineProps({
     todos: Array
 })
 
-// Используем filteredTodos из хранилища
 const filteredTodos = computed(() => todoStore.filteredTodos);
 const filter = computed(() => todoStore.filter);
 
@@ -35,7 +34,6 @@ function removeTodo(todo) {
     todoStore.removeTodo(todo);
 }
 
-// Переключение статуса задачи
 const toggleTodo = (todo) => {
     todoStore.toggleTodo(todo);
 }

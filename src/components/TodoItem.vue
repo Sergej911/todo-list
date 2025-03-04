@@ -13,9 +13,6 @@
 <script setup>
 import { defineProps } from "vue";
 import { defineEmits } from "vue";
-import { useTodoStore } from "@/stores/todoStore";
-
-const todoStore = useTodoStore();
 
 const props = defineProps({
     todo: Object
