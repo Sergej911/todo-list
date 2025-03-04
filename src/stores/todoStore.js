@@ -1,4 +1,4 @@
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import { defineStore } from "pinia";
 
 export const useTodoStore = defineStore("todo", () => {
@@ -28,18 +28,15 @@ export const useTodoStore = defineStore("todo", () => {
   function addTodo(text) {
     if (text.trim()) {
       todos.value.push({ id: id++, text, completed: false });
-      saveToLocalStorage();
     }
   }
 
   function removeTodo(todo) {
     todos.value = todos.value.filter((t) => t !== todo);
-    saveToLocalStorage();
   }
 
   function toggleTodo(todo) {
     todo.completed = !todo.completed;
-    saveToLocalStorage();
   }
 
   const filteredTodos = computed(() => {
@@ -58,9 +55,13 @@ export const useTodoStore = defineStore("todo", () => {
     localStorage.setItem("filter", newFilter);
   }
 
-  function saveToLocalStorage() {
-    localStorage.setItem("todos", JSON.stringify(todos.value));
-  }
+  watch(
+    todos,
+    (newTodos) => {
+      localStorage.setItem("todos", JSON.stringify(newTodos));
+    },
+    { deep: true }
+  );
 
   return {
     todos,
